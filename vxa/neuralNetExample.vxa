@@ -35,7 +35,7 @@
         </StopCondition>
         <GA>
             <WriteFitnessFile>1</WriteFitnessFile>
-            <FitnessFileName>fitnessFiles/softbotsOutput--id_00069.xml</FitnessFileName>
+            <FitnessFileName>softbotsOutput--id_00069.xml</FitnessFileName>
         </GA>
     </Simulator>
     <Environment>

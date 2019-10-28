@@ -12,7 +12,7 @@ include_directories(${VOXELYZE})
 # Locate the Voxelyze static library
 find_library(LIB_VOXELYZE
         NAMES Voxelyze
-        PATHS ${VOXELYZE}/cmake-build-debug)
+        PATHS ${VOXELYZE}/$ENV{VOXELYZE_BUILD_DIR})
 
 set(SOURCES
         main.cpp
