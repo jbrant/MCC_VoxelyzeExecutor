@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
         {
             std::cout << "Time: " << Simulator.CurTime << std::endl;
             std::cout << "CM: " << Simulator.GetCM().Length() << std::endl;
-            std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl << std::endl;
-            std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl;
+            std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl;
+            std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl << std::endl;
 
             // std::cout << " \tVox 0 X: " << Vox0Pos.x << "mm" << "\tVox 0 Y: " << Vox0Pos.y << "mm" << "\tVox 0 Z: " << Vox0Pos.z << "mm\n";	//just display the position of the first voxel in the voxelarray
             // std::cout << "Vox[0]  Scale: " << Simulator.VoxArray[0].GetCurScale() << std::endl;
