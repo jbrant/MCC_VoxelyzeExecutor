@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 
     // Simulator.pEnv->UpdateCurTemp(Time);	//set the starting temperature (nac: pointer removed for debugging)
 
-    while (not Simulator.StopConditionMet()) // and (Simulator.fitness1 > 0 or Simulator->pEnv->goalLocationX<=0)
+    while (not Simulator.StopConditionMet())
     {
         // do some reporting via the stdoutput if required:
         if (Step%100 == 0.0 && print_scrn) //Only output every n time steps
@@ -65,22 +65,11 @@ int main(int argc, char *argv[])
             std::cout << "CM: " << Simulator.GetCM().Length() << std::endl;
             std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl;
             std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl << std::endl;
-
-            // std::cout << " \tVox 0 X: " << Vox0Pos.x << "mm" << "\tVox 0 Y: " << Vox0Pos.y << "mm" << "\tVox 0 Z: " << Vox0Pos.z << "mm\n";	//just display the position of the first voxel in the voxelarray
-            // std::cout << "Vox[0]  Scale: " << Simulator.VoxArray[0].GetCurScale() << std::endl;
-            // std::cout << "Vox[0]  TempAmp: " << Simulator.VoxArray[0].TempAmplitude << std::endl;
-            // std::cout << "Vox[0]  TempPer: " << Simulator.VoxArray[0].TempPeriod << std::endl;
-            // std::cout << "Vox[0]  phaseOffset: " << Simulator.VoxArray[0].phaseOffset << std::endl;
-            // std::cout << "Vox[5]  Scale: " << Simulator.VoxArray[5].GetCurScale() << std::endl;
-            // std::cout << "Vox[10] Scale: " << Simulator.VoxArray[10].GetCurScale() << std::endl;
         }
 
         //do the actual simulation step
         Simulator.TimeStep(&ReturnMessage);
         Step += 1;	//increment the step counter
-        // Time += Simulator.dt;	//update the sim tim after the step
-        // if (Simulator.fitness1 > 0 and Simulator->pEnv->goalLocationX>0) {Time = 0;}
-        // Simulator.pEnv->UpdateCurTemp(Time);	//pass in the global time, and a pointer to the local object so its material temps can be modified (nac: pointer removed for debugging)
     }
 
     if (print_scrn) std::cout << "Ended at: " << Time << std::endl;
