@@ -56,15 +56,25 @@ int main(int argc, char *argv[])
 
     // Simulator.pEnv->UpdateCurTemp(Time);	//set the starting temperature (nac: pointer removed for debugging)
 
+    if (Simulator.WriteSimLogFile) Simulator.OpenSimLog(); // Open stream for verbose simulation logging
+
     while (not Simulator.StopConditionMet())
     {
         // do some reporting via the stdoutput if required:
-        if (Step%100 == 0.0 && print_scrn) //Only output every n time steps
+        if (Step%100 == 0.0) //Only output every n time steps
         {
-            std::cout << "Time: " << Simulator.CurTime << std::endl;
-            std::cout << "CM: " << Simulator.GetCM().Length() << std::endl;
-            std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl;
-            std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl << std::endl;
+            if (print_scrn)
+            {
+                std::cout << "Time: " << Simulator.CurTime << std::endl;
+                std::cout << "CM: " << Simulator.GetCM().Length() << std::endl;
+                std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl;
+                std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl << std::endl;
+            }
+
+            if (Simulator.WriteSimLogFile)
+            {
+                Simulator.WriteSimLogEntry(Step);
+            }
         }
 
         //do the actual simulation step
@@ -73,6 +83,9 @@ int main(int argc, char *argv[])
     }
 
     if (print_scrn) std::cout << "Ended at: " << Time << std::endl;
+
+    // Close the verbose log file
+    if (Simulator.WriteSimLogFile) Simulator.CloseSimLog(Simulator.SimLogFileName);
 
     Simulator.SaveResultFile(Simulator.FitnessFileName);
 

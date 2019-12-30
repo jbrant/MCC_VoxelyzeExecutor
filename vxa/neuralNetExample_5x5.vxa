@@ -30,12 +30,14 @@
         </SurfMesh>
         <StopCondition>
             <StopConditionType>4</StopConditionType>
-            <StopConditionValue>20.3</StopConditionValue>
+            <StopConditionValue>2</StopConditionValue>
             <InitCmTime>0.3</InitCmTime>
         </StopCondition>
         <GA>
             <WriteFitnessFile>1</WriteFitnessFile>
             <FitnessFileName>softbotsOutput--id_00069.xml</FitnessFileName>
+            <WriteSimLogFile>0</WriteSimLogFile>
+            <SimLogFileName></SimLogFileName>
         </GA>
     </Simulator>
     <Environment>
