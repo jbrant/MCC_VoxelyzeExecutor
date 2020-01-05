@@ -68,7 +68,9 @@ int main(int argc, char *argv[])
                 std::cout << "Time: " << Simulator.CurTime << std::endl;
                 std::cout << "CM: " << Simulator.GetCM().Length() << std::endl;
                 std::cout << "Temp: " << Simulator.pEnv->GetCurTemp() << std::endl;
-                std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl << std::endl;
+                std::cout << "Max Disp: " << Simulator.SS.MaxTrialDisplacement << std::endl;
+                std::cout << "Dist: " << Simulator.GetCurDistance() << std::endl;
+                std::cout << "Total Dist: " << Simulator.SS.TotalDistanceTraversed << std::endl << std::endl;
             }
 
             if (Simulator.WriteSimLogFile)
